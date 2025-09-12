@@ -10,7 +10,7 @@ public class Flor extends JPanel {
         g.fillOval(50, 100, 100, 100); // pétalo izquierdo
         g.fillOval(150, 100, 100, 100); // pétalo derecho
         g.fillOval(100, 150, 100, 100); // pétalo inferior
-        g.setColor(Color.GREEN);
+        g.setColor(Color.BLUE);
         g.fillOval(110, 110, 80, 80);   // centro
     }
 
