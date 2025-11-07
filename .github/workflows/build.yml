@@ -1,0 +1,27 @@
+name: Java CI (sin Maven)
+
+on:
+  push:
+    branches: [ main, ci-setup ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Compilar código Java
+        run: javac -d out $(find app -name "*.java")
+
+      - name: Ejecutar programa principal
+        run: java -cp out app.main
