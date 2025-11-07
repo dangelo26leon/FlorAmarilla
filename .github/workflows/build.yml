@@ -1,4 +1,4 @@
-name: Java CI (sin Maven)
+name: Java CI 
 
 on:
   push:
@@ -20,8 +20,15 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Compilar código Java
-        run: javac -d out $(find app -name "*.java")
+      - name: Compilar código principal
+        run: |
+          mkdir -p out
+          javac -d out $(find app -MainTest "*.java")
 
-      - name: Ejecutar programa principal
-        run: java -cp out app.main
+      - name: Compilar pruebas
+        run: |
+          javac -d out $(find tests -MainTest "*.java")
+
+      - name: Run Tests
+        run: |
+          java -cp out app.MainTest
