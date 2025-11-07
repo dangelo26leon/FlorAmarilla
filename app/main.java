@@ -1,5 +1,7 @@
+pa
+
 public class main {
-    public static void Main(String[] args) {
+    public static void main(String[] args) {
         System.out.println("Hola desde GitHub Actions!");
     }
 }
